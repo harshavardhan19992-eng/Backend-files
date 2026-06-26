@@ -1,14 +1,36 @@
 const mongoose = require("mongoose");
 
 const BookingSchema = new mongoose.Schema({
-  customerId: String,
-  petId: String,
+
+  ownerName: String,
+  phone: String,
+  email: String,
+
+  petName: String,
+  petType: String,
+  breed: String,
+  petAge: Number,
+  petWeight: Number,
+
   service: String,
-  date: Date,
+
+  date: String,
+  timeSlot: String,
+
+  address: String,
+  notes: String,
+
   status: {
     type: String,
     default: "Pending"
   }
+
+}, {
+  timestamps: true
 });
 
-module.exports = mongoose.model("Booking", BookingSchema);
+module.exports =
+  mongoose.model(
+    "Booking",
+    BookingSchema
+  );

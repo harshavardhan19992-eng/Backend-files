@@ -5,6 +5,24 @@ router.get("/", async (req, res) => {
   const bookings = await Booking.find();
   res.json(bookings);
 });
+
+router.get("/customer/:phone", async (req, res) => {
+  try {
+
+    const bookings = await Booking.find({
+      phone: req.params.phone
+    });
+
+    res.json(bookings);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+});
 router.put("/:id/status", async (req, res) => {
 
   const booking =

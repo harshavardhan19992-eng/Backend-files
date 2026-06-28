@@ -43,5 +43,13 @@ router.post("/", async (req, res) => {
   const booking = await Booking.create(req.body);
   res.json(booking);
 });
+router.delete("/:id", async (req, res) => {
 
+  await Booking.findByIdAndDelete(req.params.id);
+
+  res.json({
+    message: "Booking deleted"
+  });
+
+});
 module.exports = router;

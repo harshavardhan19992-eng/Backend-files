@@ -23,7 +23,7 @@ router.get("/customer/:phone", async (req, res) => {
 
   }
 });
-router.put("/:id/status", async (req, res) => {
+router.put("/:id", async (req, res) => {
 
   const booking =
     await Booking.findByIdAndUpdate(
